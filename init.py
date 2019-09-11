@@ -1,21 +1,23 @@
-from bs4 import BeautifulSoup
-# import requests
+import db_manager
+import requests
+import wp_core
+import wp_plugins
 
-# GET LATEST HTML FILE FROM SVN
-# allPluginsSource = requests.get("https://plugins.svn.wordpress.org")
-# allPluginsSourceFile = open("./db/all-plugins-svn-source.html", "w")
-# allPluginsSourceFile.write(allPluginsSource.text)
-# allPluginsSourceFile.close()
+defaultUrl = "https://homeandroost.co.uk"
+url = input("URL to scan [%s]: " % defaultUrl) or defaultUrl
 
-# CREATE CSV FILE WITH PLUGIN SLUGS FROM LOCAL HTML FILE
-html = open("./db/all-plugins-svn-source.html", "r")
-soup = BeautifulSoup(html.read(), 'html.parser')
+print("Scanning %s..." % url)
+print("Checking if plugin CSV file exists...")
 
-pluginSlugs = ["Slug"]
+if not db_manager.csv_list_exists():
+    print("Creating CSV file...")
+    db_manager.create_csv_list_of_all_plugins()
 
-for link in soup.find_all("a"):
-    pluginSlugs.append(link.string.replace("/", ""))
+wp_core_version = wp_core.get_version_from_rss(url)
 
-allPluginsFile = open("./db/all-plugin-slugs.csv", "w")
-allPluginsFile.write("\n".join(pluginSlugs))
-allPluginsFile.close()
+print("WordPress version is %s" % wp_core_version if wp_core_version else "WordPress version not found")
+
+source = requests.get(url).text
+
+for result in wp_plugins.scan_source(source):
+    print("Found %s running version %s" % (result[0], result[1]))
