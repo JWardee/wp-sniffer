@@ -9,3 +9,7 @@ Additional features include
 - List of WordPress.org plugins are parsed into a CSV file for easy processing by other programs 
 
 The tests are enumerative so the results may not always be 100% accurate
+
+## Getting started
+1. Install all required package in `requirements.txt` using `pip`
+2. WP Sniffer uses Pythons venv system to isolate your development enviroment. Run the scan using `./venv/bin/python ./wp_sniffer.py`
