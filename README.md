@@ -14,7 +14,8 @@ The tests are enumerative so the results may not always be 100% accurate
 
 ## Getting started
 1. Install all required package in `requirements.txt` using `pip`
-2. WP Sniffer uses Pythons venv system to isolate your development environment. Run the scan using `./venv/bin/python ./wp_sniffer.py`
+2. Copy `.env.sample` and update any values
+3. Run the scan using `./venv/bin/python ./wp_sniffer.py` (WP Sniffer uses Pythons venv system to isolate your development enviroment)
 
 ## Creating your own formatter
 1. Copy and paste one of the default formatters (either `json.py` or `xml.py`) found in the `output_formatters` directory
