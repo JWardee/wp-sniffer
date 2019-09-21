@@ -4,7 +4,7 @@ Will detect information about a WordPress site including
 - Plugins and their versions
 - Theme in use and its version
 
-### Additional features include
+## Additional features include
 - Can detect all plugins available on WordPress.org
 - List of WordPress.org plugins are parsed into a CSV file for easy processing by other programs 
 - Comes with `JSON` and `XML` formatters
