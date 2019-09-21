@@ -1,11 +1,15 @@
 import re
 
-import stringcase
 from bs4 import BeautifulSoup
 from scans.scan import Scan
 
 
 class MetaTags(Scan):
+    def __init__(self, page_url, _html_source=None):
+        super().__init__(page_url, _html_source)
+        self.discovery_method = "generator-meta-tag"
+        self.confidence = 60
+
     def scan(self):
         soup = BeautifulSoup(self.html_source, 'html.parser')
         meta_tags = soup.select("meta[name=generator]")

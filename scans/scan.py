@@ -6,6 +6,8 @@ class Scan:
     def __init__(self, page_url, _html_source=None):
         self.page_url = page_url
         self._html_source = _html_source
+        self.discovery_method = "Unknown"
+        self.confidence = 0
         self._results = {}
 
     @property
@@ -37,4 +39,6 @@ class Scan:
             "slug": stringcase.lowercase(slug),
             "version": version,
             "type": type,
+            "discovery_method": self.discovery_method,
+            "confidence": self.confidence,
         }

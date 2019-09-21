@@ -1,6 +1,5 @@
 import os
 
-import settings
 import db_manager
 from scan_manager import ScanManager
 
