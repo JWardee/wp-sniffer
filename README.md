@@ -16,6 +16,7 @@ The tests are enumerative so the results may not always be 100% accurate
 1. Install all required packages in `requirements.txt` using `pip`
 2. Copy `.env.sample`, name it `.env` and update any values
 3. Run the scan using `./venv/bin/python ./wp_sniffer.py` (WP Sniffer uses Pythons venv system to isolate your development enviroment)
+4. (optional) If you want to use this inside of your own package you can start a scan by calling `ScanManager().run_all('http://my-wordpress-site.com')`
 
 ## Creating your own formatter
 1. Copy and paste one of the default formatters (either `json.py` or `xml.py`) found in the `output_formatters` directory

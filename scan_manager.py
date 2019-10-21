@@ -1,5 +1,6 @@
 import os
 
+import db_manager
 import utilities
 from scans.assets_in_source import AssetsInSource
 from scans.meta_tags import MetaTags
@@ -8,6 +9,7 @@ from scans.rss_feed import RssFeed
 
 class ScanManager:
     def run_all(self, url):
+        db_manager.update_db()
         assets_in_source = AssetsInSource(url, None)
 
         results = RssFeed(url, None).results

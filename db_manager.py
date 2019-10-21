@@ -3,6 +3,11 @@ import os.path
 import requests
 
 
+def update_db():
+    if not csv_list_exists():
+        create_csv_list_of_all_plugins()
+
+
 def csv_list_exists():
     return os.path.exists(os.getenv("CSV_PLUGIN_LIST_DIR"))
 
