@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+
+import os
+import wp_sniffer.settings # Do not remove as this initialises the .env file and other settings
+
+from wp_sniffer.scan_manager import ScanManager
+
+url = input("URL to scan [%s]: " % os.getenv("DEFAULT_URL")) or os.getenv("DEFAULT_URL")
+
+print(ScanManager().run_all(url))

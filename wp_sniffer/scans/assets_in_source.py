@@ -1,5 +1,5 @@
 import re
-from scans.scan import Scan
+from wp_sniffer.scans.scan import Scan
 
 
 class AssetsInSource(Scan):

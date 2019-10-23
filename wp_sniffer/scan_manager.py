@@ -1,10 +1,10 @@
 import os
 
-import db_manager
-import utilities
-from scans.assets_in_source import AssetsInSource
-from scans.meta_tags import MetaTags
-from scans.rss_feed import RssFeed
+import wp_sniffer.db_manager as db_manager
+import wp_sniffer.utilities as utilities
+from wp_sniffer.scans.assets_in_source import AssetsInSource
+from wp_sniffer.scans.meta_tags import MetaTags
+from wp_sniffer.scans.rss_feed import RssFeed
 
 
 class ScanManager:

@@ -1,7 +1,7 @@
 import re
 
 from bs4 import BeautifulSoup
-from scans.scan import Scan
+from wp_sniffer.scans.scan import Scan
 
 
 class MetaTags(Scan):

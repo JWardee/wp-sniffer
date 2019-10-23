@@ -15,8 +15,16 @@ The tests are enumerative so the results may not always be 100% accurate
 ## Getting started
 1. Install all required packages in `requirements.txt` using `pip`
 2. Copy `.env.sample`, name it `.env` and update any values
-3. Run the scan using `./venv/bin/python ./wp_sniffer.py` (WP Sniffer uses Pythons venv system to isolate your development enviroment)
-4. (optional) If you want to use this inside of your own package you can start a scan by calling `ScanManager().run_all('http://my-wordpress-site.com')`
+3. Run the scan using `./wp_sniffer/wp_sniffer` on screen instructions will guide you from there
+
+## Running a scan programatically
+1. Import the scan manager `from wp_sniffer.scan_manager import ScanManager`
+2. Call the `run_all` method passing the url to scan - eg `ScanManager().run_all('http://my-wordpress-site.com')`
+
+## Forking the repo and building
+1. Fork the repo as normal and make any changes you'd like
+2. To build run: `python3 setup.py bdist_wheel` **NOTE: Your `.env` file is also built into the package not `.env.sample`**
+3. In your other python project you can install your fork by calling `pip install LOCATION_OF_YOUR_setup.py_FILE_HERE --no-cache-dir`
 
 ## Creating your own formatter
 1. Copy and paste one of the default formatters (either `json.py` or `xml.py`) found in the `output_formatters` directory
