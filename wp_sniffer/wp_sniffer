@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import os
-import wp_sniffer.settings # Do not remove as this initialises the .env file and other settings
 
 from wp_sniffer.scan_manager import ScanManager
 

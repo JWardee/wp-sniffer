@@ -8,7 +8,7 @@ from wp_sniffer.scans.rss_feed import RssFeed
 
 
 class ScanManager:
-    def run_all(self, url):
+    def run_all(self, url, _formatter=os.getenv("OUTPUT_FORMATTER")):
         db_manager.update_db()
         assets_in_source = AssetsInSource(url, None)
 
@@ -16,7 +16,7 @@ class ScanManager:
         results += assets_in_source.results
         results += MetaTags(url, assets_in_source.html_source).results
 
-        formatter = utilities.import_file("output_formatters." + os.getenv("OUTPUT_FORMATTER"), ['format_output'])
+        formatter = utilities.import_file("wp_sniffer.output_formatters." + _formatter, ['format_output'])
 
         return formatter.format_output(self.remove_duplicate_results_by_confidence(results))
 
